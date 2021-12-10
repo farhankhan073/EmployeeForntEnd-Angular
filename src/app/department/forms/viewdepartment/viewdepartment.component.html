@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header">
+        <h4>View Department</h4>
+    </div>
+    <div class="card-body table-responsive-sm table-responsive-md table-responsive-lg">
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th >Department Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let element of departmentList | paginate: { itemsPerPage: pageSize, currentPage: p };   let i=index">
+
+            <td>{{pageSize *(p-1)+(i+1)}}</td>
+            <td>{{element.departmentname}}</td>        
+            <td>
+                <button type="button" class="btn-sm btn-primary" (click)="updateDepartment(element)"><i class="fa fa-edit"></i></button>
+                &nbsp;
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+      <div class="d-flex justify-content-end">
+
+        Items Per Page:&nbsp;
+        <select style="width: 50px; margin-right: 10px;" (change)="handlePageSizeChange($event)">
+          <option *ngFor="let size of pageSizes" [ngValue]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>

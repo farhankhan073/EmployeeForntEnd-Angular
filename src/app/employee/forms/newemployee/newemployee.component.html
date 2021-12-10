@@ -1,0 +1,186 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="card-body container-fluid">
+        <form [formGroup]="createEmployeeForm">
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="firstName">First Name<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="firstNameControl" type="text" id="firstName" name="firstName" class="form-control"
+                                [class.is-invalid]="f.firstNameControl.invalid && f.firstNameControl.touched">
+                            <div *ngIf="f.firstNameControl.invalid && f.firstNameControl.touched" class="help-block">
+                                <span *ngIf="f.firstNameControl.errors?.required"
+                                    class="text-danger"><small>First name is required</small></span>
+                                    <span *ngIf="f.firstNameControl.errors?.minlength"
+                                    class="text-danger"><small>First name must be at least 3 characters</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="lastName">Last Name<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="lastNameControl" type="text" id="lastName" name="lastName" class="form-control"
+                                [class.is-invalid]="f.lastNameControl.invalid && f.lastNameControl.touched">
+                            <div *ngIf="f.lastNameControl.invalid && f.lastNameControl.touched" class="help-block">
+                                <span *ngIf="f.lastNameControl.errors?.required"
+                                    class="text-danger"><small>Last name is required</small></span>
+                                    <span *ngIf="f.lastNameControl.errors?.minlength"
+                                    class="text-danger"><small>Last name must be at least 3 characters</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="email">Email<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="emailControl" type="text" id="email" name="email" class="form-control"
+                                [class.is-invalid]="f.emailControl.invalid && f.emailControl.touched">
+                            <div *ngIf="f.emailControl.invalid && f.emailControl.touched" class="help-block">
+                                <span *ngIf="f.emailControl.errors?.required"
+                                    class="text-danger"><small>Email is required</small></span>
+                                    <span *ngIf="f.emailControl.errors?.pattern"
+                                    class="text-danger"><small>Enter valid email</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="phoneNo">Phone No<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="phoneNoControl" type="text" id="phoneNo" name="phoneNo" class="form-control"
+                                [class.is-invalid]="f.phoneNoControl.invalid && f.phoneNoControl.touched">
+                            <div *ngIf="f.phoneNoControl.invalid && f.phoneNoControl.touched" class="help-block">
+                                <span *ngIf="f.phoneNoControl.errors?.required"
+                                    class="text-danger"><small>Phone no is required</small></span>
+                                    <span *ngIf="f.phoneNoControl.errors?.pattern"
+                                    class="text-danger"><small>Enter only digits and hyphen</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class=" form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="hireDate">Hire Date<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="hireDateControl" type="date" id="hireDate" name="hireDate"
+                                class="form-control" [class.is-invalid]="f.hireDateControl.invalid && f.hireDateControl.touched">
+                            <div *ngIf="f.hireDateControl.invalid && f.hireDateControl.touched" class="help-block">
+                                <span *ngIf="f.hireDateControl.errors?.required"
+                                    class="text-danger"><small>Hire date is required</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="salary">Salary<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="salaryControl" type="text" id="salary" name="salary" class="form-control"
+                                [class.is-invalid]="f.salaryControl.invalid && f.salaryControl.touched">
+                            <div *ngIf="f.salaryControl.invalid && f.salaryControl.touched" class="help-block">
+                                <span *ngIf="f.salaryControl.errors?.required"
+                                    class="text-danger"><small>Salary is required</small></span>
+                                    <span *ngIf="f.salaryControl.errors?.pattern"
+                                    class="text-danger"><small>Salary must be greater then 0</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="department">Department<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <select class="browser-default custom-select form-control" formControlName="departmentControl"
+                                [class.is-invalid]="f.departmentControl.invalid && f.departmentControl.touched">
+                                <option value="">Select Department</option>
+                                <option  [ngValue]="dep" *ngFor="let dep of departmentList">{{dep.departmentname}}</option>
+                            </select>
+                            <div *ngIf="f.departmentControl.invalid && f.departmentControl.touched" class="help-block">
+                                <span *ngIf="f.departmentControl.errors?.required"
+                                    class="text-danger"><small>Department is required</small></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="manager">Manager</label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <select class="browser-default custom-select form-control" formControlName="managerControl"
+                                >
+                                <option value="">Select Manager</option>
+                                <option  [ngValue]="emp" *ngFor="let emp of employeeList">{{emp.firstname}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>      
+        </form>
+    </div>
+
+    <div class="card-footer">
+        <div class="row" style="padding-left: 15px;">
+          <button class="btn btn-primary" type="button" (click)="saveEmployee()"
+            [disabled]="!createEmployeeForm.valid">{{buttonValue}}</button>
+            <button class="btn btn-secondary" type="button" (click)="CancelEmployee()" style = "margin-left: 5px;">Cancel</button>
+        </div>
+    </div>
+</div>

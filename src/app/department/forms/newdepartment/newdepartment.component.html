@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{title}}</h4>
+    </div>
+    <div class="card-body container-fluid">
+        <form [formGroup]="createDepartmentForm">
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="departmentName">Department Name<span
+                                    style="color:red"> *</span></label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input formControlName="departmentNameControl" type="text" id="departmentName" name="departmentName" class="form-control"
+                                [class.is-invalid]="f.departmentNameControl.invalid && f.departmentNameControl.touched">
+                            <div *ngIf="f.departmentNameControl.invalid && f.departmentNameControl.touched" class="help-block">
+                                <span *ngIf="f.departmentNameControl.errors?.required"
+                                    class="text-danger"><small>Department name is required</small></span>
+                        
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+           
+
+           
+
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                    <div class="form-group row">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="col-form-label" for="manager">Manager</label>
+                        </div>
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <select class="browser-default custom-select form-control" formControlName="managerControl">
+                                <option value="">Select Manager</option>
+                                <option  [ngValue]="mng" *ngFor="let mng of employeeList">{{mng.firstname}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+            
+        </form>
+    </div>
+
+    <div class="card-footer">
+        <div class="row" style="padding-left: 15px;">
+          <button class="btn btn-primary" type="button" (click)="saveDepartment()"
+            [disabled]="!createDepartmentForm.valid">{{buttonValue}}</button>
+
+            <button class="btn btn-secondary" type="button" (click)="CancelDepartment()" style = "margin-left: 5px;">Cancel</button>
+        </div>
+    </div>
+</div>
